@@ -21,8 +21,10 @@
 
     <ImageView
         android:id="@+id/MapView"
-        android:layout_width="wrap_content"
+        android:layout_width="90dp"
         android:layout_height="90dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginLeft="160dp"
         android:layout_marginTop="80dp"
         android:contentDescription="@string/mapbutton"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,8 +33,10 @@
 
     <ImageView
         android:id="@+id/EmployeeView"
-        android:layout_width="wrap_content"
+        android:layout_width="90dp"
         android:layout_height="90dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginLeft="160dp"
         android:layout_marginTop="40dp"
         android:contentDescription="@string/employeebutton"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,9 +45,11 @@
 
     <ImageView
         android:id="@+id/ContactView"
-        android:layout_width="wrap_content"
+        android:layout_width="90dp"
         android:layout_height="90dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="36dp"
         android:contentDescription="@string/contactbutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EmployeeView"
