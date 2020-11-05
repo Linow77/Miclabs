@@ -8,41 +8,45 @@
     android:background="@color/back">
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="90dp"
-        android:layout_marginTop="80dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:srcCompat="@drawable/placeholder_bleu" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="90dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@drawable/google_docs_gris"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="90dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@drawable/envelope_rose"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/TitleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="46dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/titleview"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/miclabslogo" />
+
+    <ImageView
+        android:id="@+id/MapView"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:layout_marginTop="80dp"
+        android:contentDescription="@string/mapbutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TitleView"
+        app:srcCompat="@drawable/placeholder_bleu" />
+
+    <ImageView
+        android:id="@+id/EmployeeView"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/employeebutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MapView"
+        app:srcCompat="@drawable/google_docs_gris" />
+
+    <ImageView
+        android:id="@+id/ContactView"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/contactbutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmployeeView"
+        app:srcCompat="@drawable/envelope_rose" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

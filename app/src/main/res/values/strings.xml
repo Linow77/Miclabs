@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Miclabs</string>
+    <string name="mapbutton">Mapbutton</string>
+    <string name="employeebutton">EmployeeButton</string>
+    <string name="contactbutton">ContactButton</string>
+    <string name="titleview">TitleView</string>
 </resources>
