@@ -9,18 +9,31 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Employee_activity extends AppCompatActivity {
 
     private ListView mListView;
+    private Socket client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_activity);
 
+        //Connexion au serveur
+        try {
+            client = new Socket("192.168.0.33", 3456);
+
+            client.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //Liste à remplir avec les noms des employés
         List<String> list_name_employees = new ArrayList<>();
 
         String[] emp1 = getResources().getStringArray(R.array.employee1_info);
