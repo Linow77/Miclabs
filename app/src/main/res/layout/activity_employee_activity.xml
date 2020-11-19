@@ -24,9 +24,6 @@
         android:id="@+id/listView"
         android:layout_width="wrap_content"
         android:layout_height="642dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginTop="13dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
