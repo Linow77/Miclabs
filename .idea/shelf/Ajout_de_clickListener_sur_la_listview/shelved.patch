@@ -1,0 +1,58 @@
+Index: app/src/main/java/com/example/miclabs/Employee_activity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.miclabs;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.os.Bundle;\r\nimport android.util.Log;\r\nimport android.view.View;\r\nimport android.widget.ArrayAdapter;\r\nimport android.widget.ListView;\r\nimport android.widget.TextView;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class Employee_activity extends AppCompatActivity {\r\n\r\n    private ListView mListView;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_employee_activity);\r\n\r\n        List<String> list_name_employees = new ArrayList<>();\r\n\r\n        String[] emp1 = getResources().getStringArray(R.array.employee1_info);\r\n        String[] emp2 = getResources().getStringArray(R.array.employee2_info);\r\n\r\n        list_name_employees.add(emp1[0]);\r\n        list_name_employees.add(emp2[0]);\r\n        list_name_employees.add(emp1[0]);\r\n        list_name_employees.add(emp2[0]);\r\n        list_name_employees.add(emp1[0]);\r\n        list_name_employees.add(emp2[0]);\r\n        list_name_employees.add(emp1[0]);\r\n        list_name_employees.add(emp2[0]);\r\n        list_name_employees.add(emp1[0]);\r\n        list_name_employees.add(emp2[0]);\r\n        list_name_employees.add(emp1[0]);\r\n        list_name_employees.add(emp2[0]);\r\n        list_name_employees.add(emp1[0]);\r\n        list_name_employees.add(emp2[0]);\r\n        list_name_employees.add(emp1[0]);\r\n        list_name_employees.add(emp2[0]);\r\n        list_name_employees.add(emp1[0]);\r\n        list_name_employees.add(emp2[0]);\r\n\r\n        mListView = (ListView) findViewById(R.id.listView);\r\n\r\n        //android.R.layout.simple_list_item_1 est une vue disponible de base dans le SDK android,\r\n        //Contenant une TextView avec comme identifiant \"@android:id/text1\"\r\n\r\n        final ArrayAdapter<String> adapter = new ArrayAdapter<>(Employee_activity.this,\r\n                android.R.layout.simple_list_item_1,list_name_employees);\r\n        mListView.setAdapter(adapter);\r\n\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/miclabs/Employee_activity.java	(revision 4bdfff57e12d6cd2d0b8f37a074490c05a75a931)
++++ app/src/main/java/com/example/miclabs/Employee_activity.java	(date 1605792415362)
+@@ -5,16 +5,18 @@
+ import android.os.Bundle;
+ import android.util.Log;
+ import android.view.View;
++import android.widget.AdapterView;
+ import android.widget.ArrayAdapter;
+ import android.widget.ListView;
+ import android.widget.TextView;
++import android.widget.Toast;
+ 
+ import java.util.ArrayList;
+ import java.util.List;
+ 
+ public class Employee_activity extends AppCompatActivity {
+ 
+-    private ListView mListView;
++    private ListView employeeListView;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+@@ -45,14 +47,26 @@
+         list_name_employees.add(emp1[0]);
+         list_name_employees.add(emp2[0]);
+ 
+-        mListView = (ListView) findViewById(R.id.listView);
++        employeeListView = (ListView) findViewById(R.id.listView);
+ 
+         //android.R.layout.simple_list_item_1 est une vue disponible de base dans le SDK android,
+         //Contenant une TextView avec comme identifiant "@android:id/text1"
+ 
+         final ArrayAdapter<String> adapter = new ArrayAdapter<>(Employee_activity.this,
+                 android.R.layout.simple_list_item_1,list_name_employees);
+-        mListView.setAdapter(adapter);
++        employeeListView.setAdapter(adapter);
++
++        // OnClickListener on ListView
++        employeeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
++            @Override
++            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
++
++                Toast.makeText(Employee_activity.this, "Employee is "+adapter.getItem(position)+" à la position:"+position, Toast.LENGTH_SHORT).show();
++            }
++        });
++
++
++
+ 
+     }
+ 
