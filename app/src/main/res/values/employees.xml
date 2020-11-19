@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="employee1_info">
+        <item>Richard Cloos</item>
+        <item>21 ans</item>
+        <item>16.10.2015</item>
+        <item>Deprt Maintenace</item>
+    </string-array>
+
+    <string-array name="employee2_info">
+        <item>Imane Aziz</item>
+        <item>21 ans</item>
+        <item>11.10.2015</item>
+        <item>Deprt Sécurité</item>
+    </string-array>
+</resources>

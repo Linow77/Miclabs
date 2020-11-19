@@ -6,6 +6,6 @@
     <string name="titleview">TitleView</string>
     <string name="button">Button</string>
     <string name="contact">Contact</string>
-    <string name="employe">Employe</string>
+    <string name="employe">Liste des Employés</string>
     <string name="map">Map</string>
 </resources>
