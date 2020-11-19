@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -16,7 +18,7 @@ import java.util.List;
 
 public class Employee_activity extends AppCompatActivity {
 
-    private ListView mListView;
+    private ListView employeeListView;
     private Socket client;
 
     @Override
@@ -58,19 +60,22 @@ public class Employee_activity extends AppCompatActivity {
         list_name_employees.add(emp1[0]);
         list_name_employees.add(emp2[0]);
 
-        mListView = (ListView) findViewById(R.id.listView);
+        employeeListView = (ListView) findViewById(R.id.listView);
 
         //android.R.layout.simple_list_item_1 est une vue disponible de base dans le SDK android,
         //Contenant une TextView avec comme identifiant "@android:id/text1"
 
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(Employee_activity.this,
                 android.R.layout.simple_list_item_1,list_name_employees);
-        mListView.setAdapter(adapter);
+        employeeListView.setAdapter(adapter);
+
+        // OnClickListener on ListView
+                employeeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(Employee_activity.this, "Employee is "+adapter.getItem(position)+" à la position:"+position, Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
-
-
-
-
-
 }
