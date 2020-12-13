@@ -1,5 +1,5 @@
 # AppliProjetInterfilliere
-application android connectée a un robot Pepper
+## application android connectée a un robot Pepper
 
 connection du server taper :
 
