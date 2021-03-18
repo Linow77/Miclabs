@@ -12,10 +12,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Employee_activity extends AppCompatActivity {
 
@@ -28,40 +33,66 @@ public class Employee_activity extends AppCompatActivity {
         setContentView(R.layout.activity_employee_activity);
 
         //Connexion au serveur
-        try {
-            client = new Socket("192.168.0.33", 3456);
+        /*try {
 
-            client.close();
-        } catch (IOException e) {
+            final Socket clientSocket;
+            final BufferedReader in;
+            final PrintWriter out;
+            final Scanner sc = new Scanner(System.in);//pour lire à partir du clavier
+
+            System.out.println("On va lancer une connexion");
+            clientSocket = new Socket("172.16.0.37",12805);
+            System.out.println("TEEESSt");
+            out = new PrintWriter(clientSocket.getOutputStream());
+            in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+
+            //La on envoie la string pour recevoir toutes les infos
+            out.println("Tout|");
+            out.flush();
+            /*
+             * Pour recevoir la liste reduite : 'liste reduite|'
+             * Pour recevoir les infos pour un id précis : 'id,info|'
+             * Pour recevoir la photo d'un id précis : "id,photo|'
+             */
+            /*
+            String msg;
+
+            msg = in.readLine();
+
+            System.out.println("Serveur : "+msg);
+
+            System.out.println("Serveur déconecté");
+            out.close();
+            clientSocket.close();
+
+            //Pour fermer le serveur quand on a terminé
+            out.println("Fermer|");
+
+        } catch (UnknownHostException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
-        }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }*/
 
         //Liste à remplir avec les noms des employés
         List<String> list_name_employees = new ArrayList<>();
+        List<Employee_Data> list_employee = new ArrayList<Employee_Data>();
 
         String[] emp1 = getResources().getStringArray(R.array.employee1_info);
         String[] emp2 = getResources().getStringArray(R.array.employee2_info);
 
-        list_name_employees.add(emp1[0]);
-        list_name_employees.add(emp2[0]);
-        list_name_employees.add(emp1[0]);
-        list_name_employees.add(emp2[0]);
-        list_name_employees.add(emp1[0]);
-        list_name_employees.add(emp2[0]);
-        list_name_employees.add(emp1[0]);
-        list_name_employees.add(emp2[0]);
-        list_name_employees.add(emp1[0]);
-        list_name_employees.add(emp2[0]);
-        list_name_employees.add(emp1[0]);
-        list_name_employees.add(emp2[0]);
-        list_name_employees.add(emp1[0]);
-        list_name_employees.add(emp2[0]);
-        list_name_employees.add(emp1[0]);
-        list_name_employees.add(emp2[0]);
-        list_name_employees.add(emp1[0]);
-        list_name_employees.add(emp2[0]);
+        //Récupérer tous les employées (id, nom, prénom)
 
-        Employee_Data Data = new Employee_Data();
+        //Les mettre dans la liste
+
+        //a enlever
+        final Employee_Data Data = new Employee_Data(1, "Imane", "Aziz",
+                "imane.aziz@miclabs.com", "richard.cloos@miclabs.com",
+                "C:\\Users\\richa\\AndroidStudioProjects\\Miclabs\\app\\src\\main\\res\\drawable\\imane", 0);
+
+        list_name_employees.add(Data.f_name+" "+Data.name);
 
         employeeListView = (ListView) findViewById(R.id.listView);
 
@@ -73,12 +104,12 @@ public class Employee_activity extends AppCompatActivity {
         employeeListView.setAdapter(adapter);
 
         // OnClickListener on ListView
-                employeeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        employeeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(Employee_activity.this, "Employee is "+adapter.getItem(position)+" à la position:"+position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Employee_activity.this, EmployeeDataActivity.class);
-
+                intent.putExtra("EMPLOYEE_ID", "7");
                 // start the activity connect to the specified class
                 startActivity(intent);
             }

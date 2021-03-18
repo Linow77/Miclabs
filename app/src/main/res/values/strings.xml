@@ -13,4 +13,5 @@
     <string name="Employee_first_name">Prénom</string>
     <string name="infraction_counter">Nombre infractions</string>
     <string name="chief_contact">Personne à contacter</string>
+    <string name="employee_id">Id</string>
 </resources>
