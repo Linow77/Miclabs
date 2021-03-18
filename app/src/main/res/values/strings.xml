@@ -8,4 +8,9 @@
     <string name="contact">Contact</string>
     <string name="employe">Liste des Employés</string>
     <string name="map">Map</string>
+    <string name="profile_picture">Profile_picture</string>
+    <string name="Employee_name">Nom</string>
+    <string name="Employee_first_name">Prénom</string>
+    <string name="infraction_counter">Nombre infractions</string>
+    <string name="chief_contact">Personne à contacter</string>
 </resources>

@@ -2,6 +2,7 @@ package com.example.miclabs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -60,6 +61,8 @@ public class Employee_activity extends AppCompatActivity {
         list_name_employees.add(emp1[0]);
         list_name_employees.add(emp2[0]);
 
+        Employee_Data Data = new Employee_Data();
+
         employeeListView = (ListView) findViewById(R.id.listView);
 
         //android.R.layout.simple_list_item_1 est une vue disponible de base dans le SDK android,
@@ -74,6 +77,10 @@ public class Employee_activity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(Employee_activity.this, "Employee is "+adapter.getItem(position)+" à la position:"+position, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Employee_activity.this, EmployeeDataActivity.class);
+
+                // start the activity connect to the specified class
+                startActivity(intent);
             }
         });
 
