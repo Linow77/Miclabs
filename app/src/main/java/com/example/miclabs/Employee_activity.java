@@ -16,6 +16,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -33,49 +34,11 @@ public class Employee_activity extends AppCompatActivity {
         setContentView(R.layout.activity_employee_activity);
 
         //Connexion au serveur
-        /*try {
-
-            final Socket clientSocket;
-            final BufferedReader in;
-            final PrintWriter out;
-            final Scanner sc = new Scanner(System.in);//pour lire à partir du clavier
-
-            System.out.println("On va lancer une connexion");
-            clientSocket = new Socket("172.16.0.37",12805);
-            System.out.println("TEEESSt");
-            out = new PrintWriter(clientSocket.getOutputStream());
-            in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-
-            //La on envoie la string pour recevoir toutes les infos
-            out.println("Tout|");
-            out.flush();
-            /*
-             * Pour recevoir la liste reduite : 'liste reduite|'
-             * Pour recevoir les infos pour un id précis : 'id,info|'
-             * Pour recevoir la photo d'un id précis : "id,photo|'
-             */
-            /*
-            String msg;
-
-            msg = in.readLine();
-
-            System.out.println("Serveur : "+msg);
-
-            System.out.println("Serveur déconecté");
-            out.close();
-            clientSocket.close();
-
-            //Pour fermer le serveur quand on a terminé
-            out.println("Fermer|");
-
-        } catch (UnknownHostException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }*/
-
+        System.out.println("DEBUT THREADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
+        new Thread(new client()).start();
+        //client t = new client();
+        //t.start();
+        System.out.println("FIN THREADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
         //Liste à remplir avec les noms des employés
         List<String> list_name_employees = new ArrayList<>();
         List<Employee_Data> list_employee = new ArrayList<Employee_Data>();
@@ -115,5 +78,54 @@ public class Employee_activity extends AppCompatActivity {
             }
         });
 
+    }
+
+    class client implements Runnable{
+        @Override
+        public void run() {
+            try {
+
+                final Socket clientSocket;
+                final BufferedReader in;
+                final PrintWriter out;
+                final Scanner sc = new Scanner(System.in);//pour lire à partir du clavier
+
+                System.out.println("On va lancer une connexion");
+                InetAddress serverAddr = InetAddress.getByName("192.168.43.228");
+                clientSocket = new Socket(serverAddr,12805);
+                System.out.println("TEEESEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEst");
+                out = new PrintWriter(clientSocket.getOutputStream());
+                in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+
+                //La on envoie la string pour recevoir toutes les infos
+                out.println("Tout|");
+                out.flush();
+                /*
+                 * Pour recevoir la liste reduite : 'liste reduite|'
+                 * Pour recevoir les infos pour un id précis : 'id,info|'
+                 * Pour recevoir la photo d'un id précis : "id,photo|'
+                 */
+
+                String msg;
+
+                msg = in.readLine();
+
+                System.out.println("Serveur : "+msg);
+
+                System.out.println("Serveur déconecté");
+                out.close();
+                clientSocket.close();
+
+                //Pour fermer le serveur quand on a terminé
+                out.println("Fermer|");
+
+            } catch (UnknownHostException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
     }
 }
