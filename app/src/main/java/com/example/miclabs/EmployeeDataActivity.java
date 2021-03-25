@@ -1,11 +1,13 @@
 package com.example.miclabs;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.os.Bundle;
 import android.provider.SyncStateContract;
 import android.util.Log;
 import android.util.LogPrinter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,8 @@ public class EmployeeDataActivity extends AppCompatActivity {
     private TextView mail_address;
     private TextView chief_address;
     private TextView missing_mask_counter;
+    private ImageView imageView;
+    private int[] images = new int[2];
 
     public void setTextView(TextView tv1, String text) {
         tv1.setText(text);
@@ -27,13 +31,24 @@ public class EmployeeDataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.employee_data);
-        employee_id = getIntent().getStringExtra("EMPLOYEE_ID");
-        Log.d("debug", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"+employee_id);
+        images[0] = R.drawable.random_girl;
+        images[1] = R.drawable.random_boy;
 
         //Demander les infos de l'employee via son id
-        Data = new Employee_Data(Integer.parseInt(employee_id), "Imane", "Aziz",
-                "imane.aziz@miclabs.com", "richard.cloos@miclabs.com",
-                "C:\\Users\\richa\\AndroidStudioProjects\\Miclabs\\app\\src\\main\\res\\drawable\\imane", 0);
+        employee_id = getIntent().getStringExtra("EMPLOYEE_ID");
+        System.out.println("DEBuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuUT "+employee_id);
+        //ERREUR ICI
+        if(employee_id == "0"){
+            Employee_Data Data = new Employee_Data(0, "Julie", "Fortmont",
+                    "julie.fortmont@miclabs.com", "maxime.delavalee@miclabs.com",
+                    2);
+        }else if (employee_id == "1"){
+            Employee_Data Data = new Employee_Data(1, "Baptiste", "Azertyuiop",
+                    "baptiste.azertyuiop@miclabs.com", "maxime.delavalee@miclabs.com",
+                    0);
+
+        }
+
         // Get the employee's information
         name = (TextView) findViewById(R.id.textView4);
         setTextView(name, Data.name);
@@ -47,6 +62,14 @@ public class EmployeeDataActivity extends AppCompatActivity {
         setTextView(chief_address, Data.chief_address);
         missing_mask_counter = (TextView) findViewById(R.id.textView12);
         setTextView(missing_mask_counter, Integer.toString(Data.missing_mask_counter));
+
+        //int id = getResources().getIdentifier("res:drawable/" + Data.imageLocation, null, null);
+        //imageView.setImageResource(id);
+        ImageView myImageView = (ImageView)findViewById(R.id.imageView);
+        myImageView.setImageResource(R.drawable.random_boy); // mettre le tableau image
+        //imageView.setImageDrawable(ContextCompat.getDrawable(R.layout.activity_employee_activity, R.drawable.richard);
+        //imageView.setBackground(R.drawable.richard);
+        //imageView.setImageResource(R.drawable.richard);
     }
 
 }

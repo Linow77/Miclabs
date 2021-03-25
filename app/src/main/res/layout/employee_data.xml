@@ -42,7 +42,7 @@
                     android:contentDescription="@string/profile_picture"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/imane" />
+                    app:srcCompat="@drawable/random_boy" />
 
                 <TextView
                     android:id="@+id/textView8"

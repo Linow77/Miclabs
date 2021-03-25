@@ -3,6 +3,7 @@ package com.example.miclabs;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -35,9 +37,9 @@ public class Employee_activity extends AppCompatActivity {
 
         //Connexion au serveur
         System.out.println("DEBUT THREADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
+        //new ConnectionTask().execute();
         new Thread(new client()).start();
-        //client t = new client();
-        //t.start();
+
         System.out.println("FIN THREADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
         //Liste à remplir avec les noms des employés
         List<String> list_name_employees = new ArrayList<>();
@@ -51,11 +53,16 @@ public class Employee_activity extends AppCompatActivity {
         //Les mettre dans la liste
 
         //a enlever
-        final Employee_Data Data = new Employee_Data(1, "Imane", "Aziz",
-                "imane.aziz@miclabs.com", "richard.cloos@miclabs.com",
-                "C:\\Users\\richa\\AndroidStudioProjects\\Miclabs\\app\\src\\main\\res\\drawable\\imane", 0);
+        final Employee_Data Julie = new Employee_Data(0, "Julie", "Fortmont",
+                "julie.fortmont@miclabs.com", "maxime.delavalee@miclabs.com",
+                 2);
 
-        list_name_employees.add(Data.f_name+" "+Data.name);
+        final Employee_Data Baptiste = new Employee_Data(1, "Baptiste", "Azertyuiop",
+                "baptiste.azertyuiop@miclabs.com", "maxime.delavalee@miclabs.com",
+                 0);
+
+        list_name_employees.add(Julie.f_name+" "+Julie.name);
+        list_name_employees.add(Baptiste.f_name+" "+Baptiste.name);
 
         employeeListView = (ListView) findViewById(R.id.listView);
 
@@ -72,7 +79,8 @@ public class Employee_activity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(Employee_activity.this, "Employee is "+adapter.getItem(position)+" à la position:"+position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Employee_activity.this, EmployeeDataActivity.class);
-                intent.putExtra("EMPLOYEE_ID", "7");
+                System.out.println("DEBuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuUT22222 "+position);
+                intent.putExtra("EMPLOYEE_ID", String.valueOf(position));
                 // start the activity connect to the specified class
                 startActivity(intent);
             }
@@ -88,11 +96,14 @@ public class Employee_activity extends AppCompatActivity {
                 final Socket clientSocket;
                 final BufferedReader in;
                 final PrintWriter out;
-                final Scanner sc = new Scanner(System.in);//pour lire à partir du clavier
 
                 System.out.println("On va lancer une connexion");
-                InetAddress serverAddr = InetAddress.getByName("192.168.43.228");
-                clientSocket = new Socket(serverAddr,12805);
+                InetAddress serverAddr = InetAddress.getByName("192.168.43.159");
+                InetSocketAddress sockAdr = new InetSocketAddress(serverAddr, 139);
+                //clientSocket = new Socket(serverAddr,12805);
+                clientSocket = new Socket();
+                //clientSocket.setSoTimeout(10000);
+                clientSocket.connect(sockAdr,100000);
                 System.out.println("TEEESEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEst");
                 out = new PrintWriter(clientSocket.getOutputStream());
                 in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -121,11 +132,54 @@ public class Employee_activity extends AppCompatActivity {
 
             } catch (UnknownHostException e) {
                 // TODO Auto-generated catch block
+                System.out.println("EREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEUR 1");
                 e.printStackTrace();
             } catch (IOException e) {
                 // TODO Auto-generated catch block
+                System.out.println("EREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEUR 2");
                 e.printStackTrace();
             }
         }
     }
+
+    /*class ConnectionTask extends AsyncTask<Void,Void,String>
+    {
+
+        public String doInBackground(Void...params)
+        {
+            String ret = null;
+            BufferedReader in = null;
+            PrintWriter out = null;
+            Socket socket = null;
+
+            try {
+                socket = new Socket("192.168.43.228", 12805);	//adresse IP du serveur
+                in = new BufferedReader (new InputStreamReader(socket.getInputStream()));
+                out = new PrintWriter(socket.getOutputStream());
+
+                out.println("TEST");
+                ret = in.readLine();
+            } catch (Exception ex) {
+                // on utilise Log sous android !
+                Log.e("ConnectionTask","Failure !0",ex);
+            }finally {
+                // il faut tout fermer hein !!!
+                if (out != null) out.close();
+                if (in != null)
+                    try {
+                        in.close();
+                    } catch (Exception ex1) {
+                        Log.e("ConnectionTask","Failure !1",ex1);
+                    }
+                try {
+                    socket.close();
+                } catch (Exception ex2) {
+                    Log.e("ConnectionTask","Failure !2",ex2);
+                }
+            }
+            return ret;
+        }
+
+
+    }*/
 }
