@@ -36,40 +36,33 @@ public class EmployeeDataActivity extends AppCompatActivity {
 
         //Demander les infos de l'employee via son id
         employee_id = getIntent().getStringExtra("EMPLOYEE_ID");
-        System.out.println("DEBuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuUT "+employee_id);
-        //ERREUR ICI
-        if(employee_id == "0"){
-            Employee_Data Data = new Employee_Data(0, "Julie", "Fortmont",
-                    "julie.fortmont@miclabs.com", "maxime.delavalee@miclabs.com",
-                    2);
-        }else if (employee_id == "1"){
-            Employee_Data Data = new Employee_Data(1, "Baptiste", "Azertyuiop",
-                    "baptiste.azertyuiop@miclabs.com", "maxime.delavalee@miclabs.com",
-                    0);
 
+        if(employee_id.equals("0")){
+            Data = new Employee_Data(0, "Julie", "Fortmont",
+                    "jfortmont@miclabs.com", "mdela@miclabs.com",
+                    2);
+        }else if (employee_id.equals("1")){
+            Data = new Employee_Data(1, "Baptiste", "Haumont",
+                    "bhaumont@miclabs.com", "mdela@miclabs.com",
+                    0);
         }
 
         // Get the employee's information
-        name = (TextView) findViewById(R.id.textView4);
+        name = findViewById(R.id.textView4);
         setTextView(name, Data.name);
-        f_name = (TextView) findViewById(R.id.textView5);
+        f_name = findViewById(R.id.textView5);
         setTextView(f_name, Data.f_name);
-        id_employe = (TextView) findViewById(R.id.textView8);
+        id_employe = findViewById(R.id.textView8);
         setTextView(id_employe, Integer.toString(Data.id_employee));
-        mail_address = (TextView) findViewById(R.id.textView10);
+        mail_address = findViewById(R.id.textView10);
         setTextView(mail_address, Data.mail_address);
-        chief_address = (TextView) findViewById(R.id.textView14);
+        chief_address = findViewById(R.id.textView14);
         setTextView(chief_address, Data.chief_address);
-        missing_mask_counter = (TextView) findViewById(R.id.textView12);
+        missing_mask_counter = findViewById(R.id.textView12);
         setTextView(missing_mask_counter, Integer.toString(Data.missing_mask_counter));
+        ImageView myImageView = findViewById(R.id.imageView);
+        myImageView.setImageResource(images[Data.id_employee]);
 
-        //int id = getResources().getIdentifier("res:drawable/" + Data.imageLocation, null, null);
-        //imageView.setImageResource(id);
-        ImageView myImageView = (ImageView)findViewById(R.id.imageView);
-        myImageView.setImageResource(R.drawable.random_boy); // mettre le tableau image
-        //imageView.setImageDrawable(ContextCompat.getDrawable(R.layout.activity_employee_activity, R.drawable.richard);
-        //imageView.setBackground(R.drawable.richard);
-        //imageView.setImageResource(R.drawable.richard);
     }
 
 }

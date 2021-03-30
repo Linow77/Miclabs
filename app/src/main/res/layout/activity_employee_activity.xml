@@ -4,21 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/back"
     tools:context=".Employee_activity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="68dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginLeft="116dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
         android:layout_marginTop="3dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginRight="69dp"
         android:gravity="center"
         android:text="@string/employe"
-        android:textColor="@android:color/holo_blue_bright"
+        android:textColor="@color/notifLogo"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:textSize="20sp" />
+        tools:textSize="32sp" />
 
     <ListView
         android:id="@+id/listView"

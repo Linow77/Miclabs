@@ -15,7 +15,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="46dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
         android:contentDescription="@string/titleview"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/miclabslogo" />
@@ -27,7 +30,10 @@
         android:layout_marginStart="160dp"
         android:layout_marginLeft="160dp"
         android:layout_marginTop="80dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginRight="161dp"
         android:contentDescription="@string/mapbutton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TitleView"
         app:srcCompat="@drawable/placeholder_bleu" />
@@ -39,7 +45,10 @@
         android:layout_marginStart="160dp"
         android:layout_marginLeft="160dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginRight="161dp"
         android:contentDescription="@string/employeebutton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MapView"
         app:srcCompat="@drawable/google_docs_gris" />
@@ -51,7 +60,10 @@
         android:layout_marginStart="160dp"
         android:layout_marginLeft="160dp"
         android:layout_marginTop="36dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginRight="161dp"
         android:contentDescription="@string/contactbutton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EmployeeView"
         app:srcCompat="@drawable/envelope_rose" />

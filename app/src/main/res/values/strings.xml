@@ -14,4 +14,5 @@
     <string name="infraction_counter">Nombre infractions</string>
     <string name="chief_contact">Personne à contacter</string>
     <string name="employee_id">Id</string>
+    <string name="basic_mail_adress">adresse@mail.com</string>
 </resources>

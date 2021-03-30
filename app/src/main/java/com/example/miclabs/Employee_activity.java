@@ -2,11 +2,13 @@ package com.example.miclabs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -36,14 +38,14 @@ public class Employee_activity extends AppCompatActivity {
         setContentView(R.layout.activity_employee_activity);
 
         //Connexion au serveur
-        System.out.println("DEBUT THREADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
+       /* System.out.println("DEBUT THREAD");
         //new ConnectionTask().execute();
         new Thread(new client()).start();
 
-        System.out.println("FIN THREADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
+        System.out.println("FIN THREAD");*/
+
         //Liste à remplir avec les noms des employés
         List<String> list_name_employees = new ArrayList<>();
-        List<Employee_Data> list_employee = new ArrayList<Employee_Data>();
 
         String[] emp1 = getResources().getStringArray(R.array.employee1_info);
         String[] emp2 = getResources().getStringArray(R.array.employee2_info);
@@ -54,32 +56,51 @@ public class Employee_activity extends AppCompatActivity {
 
         //a enlever
         final Employee_Data Julie = new Employee_Data(0, "Julie", "Fortmont",
-                "julie.fortmont@miclabs.com", "maxime.delavalee@miclabs.com",
-                 2);
+                "jfortmont@miclabs.com", "mdela@miclabs.com",
+                2);
 
-        final Employee_Data Baptiste = new Employee_Data(1, "Baptiste", "Azertyuiop",
-                "baptiste.azertyuiop@miclabs.com", "maxime.delavalee@miclabs.com",
-                 0);
+        final Employee_Data Baptiste = new Employee_Data(1, "Baptiste", "Haumont",
+                "bhaumont@miclabs.com", "mdela@miclabs.com",
+                0);
 
         list_name_employees.add(Julie.f_name+" "+Julie.name);
         list_name_employees.add(Baptiste.f_name+" "+Baptiste.name);
 
-        employeeListView = (ListView) findViewById(R.id.listView);
+        //création de la listview
+        employeeListView = findViewById(R.id.listView);
 
-        //android.R.layout.simple_list_item_1 est une vue disponible de base dans le SDK android,
-        //Contenant une TextView avec comme identifiant "@android:id/text1"
+        // Create an ArrayAdapter from List
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_list_item_1, list_name_employees){
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent){
+                // Get the Item from ListView
+                View view = super.getView(position, convertView, parent);
 
-        final ArrayAdapter<String> adapter = new ArrayAdapter<>(Employee_activity.this,
-                android.R.layout.simple_list_item_1,list_name_employees);
-        employeeListView.setAdapter(adapter);
+                // Initialize a TextView for ListView each Item
+                TextView tv = view.findViewById(android.R.id.text1);
+
+                // Set the text color of TextView (ListView Item)
+                tv.setTextColor(getResources().getColor(R.color.colorAccent));
+                tv.setTextSize(15);
+
+                // Generate ListView Item using TextView
+                return view;
+            }
+        };
+        employeeListView.setAdapter(arrayAdapter);
+
+
+        //final ArrayAdapter<String> adapter = new ArrayAdapter<>(Employee_activity.this,
+               // android.R.layout.simple_list_item_1,list_name_employees);
+
 
         // OnClickListener on ListView
         employeeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(Employee_activity.this, "Employee is "+adapter.getItem(position)+" à la position:"+position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Employee_activity.this, "Employee is "+adapter.getItem(position)+" à la position:"+position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Employee_activity.this, EmployeeDataActivity.class);
-                System.out.println("DEBuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuUT22222 "+position);
                 intent.putExtra("EMPLOYEE_ID", String.valueOf(position));
                 // start the activity connect to the specified class
                 startActivity(intent);

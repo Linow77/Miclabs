@@ -37,8 +37,8 @@
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="165dp"
+                    android:layout_height="173dp"
                     android:contentDescription="@string/profile_picture"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -65,21 +65,19 @@
 
                 <TextView
                     android:id="@+id/textView4"
-                    android:layout_width="match_parent"
-                    android:layout_height="37dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/Employee_name"
                     android:textColor="@color/colorAccent"
-                    android:textSize="32sp"
-                    />
+                    android:textSize="28sp" />
 
                 <TextView
                     android:id="@+id/textView5"
-                    android:layout_width="200dp"
-                    android:layout_height="57dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/Employee_first_name"
                     android:textColor="@color/colorAccent"
-                    android:textSize="32sp"
-                    />
+                    android:textSize="28sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -107,10 +105,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="12"
+                android:layout_marginBottom="25dp"
                 android:textColor="@color/colorAccent"
-                android:textSize="25sp"
-                android:layout_marginBottom="25dp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textView11"
@@ -127,10 +124,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="adresse@mail.com"
+                android:layout_marginBottom="25dp"
                 android:textColor="@color/colorAccent"
-                android:textSize="25sp"
-                android:layout_marginBottom="25dp"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -147,10 +143,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="superieur@mail.com"
                 android:textColor="@color/colorAccent"
-                android:textSize="25sp"
-                />
+                android:textSize="25sp" />
         </LinearLayout>
     </LinearLayout>
 
