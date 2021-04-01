@@ -6,5 +6,5 @@
     <color name="back">#0C0C0C</color>
     <color name="mapLogo">#79D3D3</color>
     <color name="employeLogo">#A1A6B6</color>
-    <color name="notifLogo">#D26F93</color>
+    <color name="colorTitle">#D26F93</color>
 </resources>

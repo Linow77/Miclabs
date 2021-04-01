@@ -7,29 +7,39 @@
     android:background="@color/back"
     tools:context=".Employee_activity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="68dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="69dp"
-        android:layout_marginRight="69dp"
-        android:gravity="center"
-        android:text="@string/employe"
-        android:textColor="@color/notifLogo"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:textSize="32sp" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="wrap_content"
-        android:layout_height="642dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="@string/employe"
+            android:textColor="@color/colorTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/listView"
+            app:layout_constraintTop_toTopOf="@id/listView"
+            android:textSize="20sp" />
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="642dp"
+            android:layout_marginTop="20dp"
+            android:divider="#DFDAD9"
+            android:dividerHeight="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

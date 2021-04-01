@@ -7,7 +7,7 @@
     <string name="button">Button</string>
     <string name="contact">Contact</string>
     <string name="employe">Liste des Employés</string>
-    <string name="map">Map</string>
+    <string name="map">Localisation du robot</string>
     <string name="profile_picture">Profile_picture</string>
     <string name="Employee_name">Nom</string>
     <string name="Employee_first_name">Prénom</string>
@@ -15,4 +15,6 @@
     <string name="chief_contact">Personne à contacter</string>
     <string name="employee_id">Id</string>
     <string name="basic_mail_adress">adresse@mail.com</string>
+    <string name="robotlocalisation">RobotLocalisation</string>
+    <string name="mail_box_example">mail_box_photo</string>
 </resources>

@@ -39,22 +39,20 @@ public class Employee_activity extends AppCompatActivity {
 
         //Connexion au serveur
        /* System.out.println("DEBUT THREAD");
-        //new ConnectionTask().execute();
         new Thread(new client()).start();
-
         System.out.println("FIN THREAD");*/
 
-        //Liste à remplir avec les noms des employés
+        //Liste à remplir avec les noms et prénoms des employés
         List<String> list_name_employees = new ArrayList<>();
 
         String[] emp1 = getResources().getStringArray(R.array.employee1_info);
         String[] emp2 = getResources().getStringArray(R.array.employee2_info);
 
         //Récupérer tous les employées (id, nom, prénom)
-
+        //serveur
         //Les mettre dans la liste
 
-        //a enlever
+        //Employés codés en dur
         final Employee_Data Julie = new Employee_Data(0, "Julie", "Fortmont",
                 "jfortmont@miclabs.com", "mdela@miclabs.com",
                 2);
@@ -69,7 +67,7 @@ public class Employee_activity extends AppCompatActivity {
         //création de la listview
         employeeListView = findViewById(R.id.listView);
 
-        // Create an ArrayAdapter from List
+        // Création d'un élément de la listview
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
                 (this, android.R.layout.simple_list_item_1, list_name_employees){
             @Override
@@ -82,17 +80,13 @@ public class Employee_activity extends AppCompatActivity {
 
                 // Set the text color of TextView (ListView Item)
                 tv.setTextColor(getResources().getColor(R.color.colorAccent));
-                tv.setTextSize(15);
+                tv.setTextSize(15); //sp
 
                 // Generate ListView Item using TextView
                 return view;
             }
         };
         employeeListView.setAdapter(arrayAdapter);
-
-
-        //final ArrayAdapter<String> adapter = new ArrayAdapter<>(Employee_activity.this,
-               // android.R.layout.simple_list_item_1,list_name_employees);
 
 
         // OnClickListener on ListView
@@ -163,44 +157,4 @@ public class Employee_activity extends AppCompatActivity {
         }
     }
 
-    /*class ConnectionTask extends AsyncTask<Void,Void,String>
-    {
-
-        public String doInBackground(Void...params)
-        {
-            String ret = null;
-            BufferedReader in = null;
-            PrintWriter out = null;
-            Socket socket = null;
-
-            try {
-                socket = new Socket("192.168.43.228", 12805);	//adresse IP du serveur
-                in = new BufferedReader (new InputStreamReader(socket.getInputStream()));
-                out = new PrintWriter(socket.getOutputStream());
-
-                out.println("TEST");
-                ret = in.readLine();
-            } catch (Exception ex) {
-                // on utilise Log sous android !
-                Log.e("ConnectionTask","Failure !0",ex);
-            }finally {
-                // il faut tout fermer hein !!!
-                if (out != null) out.close();
-                if (in != null)
-                    try {
-                        in.close();
-                    } catch (Exception ex1) {
-                        Log.e("ConnectionTask","Failure !1",ex1);
-                    }
-                try {
-                    socket.close();
-                } catch (Exception ex2) {
-                    Log.e("ConnectionTask","Failure !2",ex2);
-                }
-            }
-            return ret;
-        }
-
-
-    }*/
 }
