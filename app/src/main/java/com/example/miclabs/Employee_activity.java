@@ -42,15 +42,12 @@ public class Employee_activity extends AppCompatActivity {
         new Thread(new client()).start();
         System.out.println("FIN THREAD");*/
 
-        //Liste à remplir avec les noms et prénoms des employés
-        List<String> list_name_employees = new ArrayList<>();
-
-        String[] emp1 = getResources().getStringArray(R.array.employee1_info);
-        String[] emp2 = getResources().getStringArray(R.array.employee2_info);
-
         //Récupérer tous les employées (id, nom, prénom)
         //serveur
         //Les mettre dans la liste
+
+        //Liste à remplir avec les noms et prénoms des employés
+        List<String> list_name_employees = new ArrayList<>();
 
         //Employés codés en dur
         final Employee_Data Julie = new Employee_Data(0, "Julie", "Fortmont",
@@ -93,7 +90,6 @@ public class Employee_activity extends AppCompatActivity {
         employeeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Toast.makeText(Employee_activity.this, "Employee is "+adapter.getItem(position)+" à la position:"+position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Employee_activity.this, EmployeeDataActivity.class);
                 intent.putExtra("EMPLOYEE_ID", String.valueOf(position));
                 // start the activity connect to the specified class

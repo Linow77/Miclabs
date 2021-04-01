@@ -6,62 +6,65 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="@color/back">
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_margin="20dp"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/TitleView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:contentDescription="@string/titleview"
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_margin="20dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/miclabslogo" />
+            >
 
-        <ImageView
-            android:id="@+id/MapView"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:contentDescription="@string/mapbutton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TitleView"
-            app:srcCompat="@drawable/placeholder_bleu" />
+            <ImageView
+                android:id="@+id/TitleView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/titleview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/miclabslogo" />
 
-        <ImageView
-            android:id="@+id/EmployeeView"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:contentDescription="@string/employeebutton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/MapView"
-            app:srcCompat="@drawable/google_docs_gris" />
+            <ImageView
+                android:id="@+id/MapView"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:contentDescription="@string/mapbutton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TitleView"
+                app:srcCompat="@drawable/placeholder_bleu" />
 
-        <ImageView
-            android:id="@+id/ContactView"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:contentDescription="@string/contactbutton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EmployeeView"
-            app:srcCompat="@drawable/envelope_rose" />
+            <ImageView
+                android:id="@+id/EmployeeView"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:contentDescription="@string/employeebutton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MapView"
+                app:srcCompat="@drawable/google_docs_gris" />
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/ContactView"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:contentDescription="@string/contactbutton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/EmployeeView"
+                app:srcCompat="@drawable/envelope_rose" />
+
+        </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
